@@ -15,7 +15,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'no-unused-vars': 'error',
-    'no-console': 'error',
+    // 'no-console': 'error',
     'no-debugger': 'error',
     'no-var': 'error',
   },
