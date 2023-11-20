@@ -6,11 +6,34 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + React + TS</title>
+  <style>
+    .loading {
+      animation: romate linear 1.5s infinite;
+    }
+
+    @keyframes romate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
-  <div id="loading"></div>
+  <div id="loading" style="display: none;">
+    <svg t="1700497430661" class="icon loading" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      p-id="4053" width="64" height="64">
+      <path
+        d="M272 704a47.84 47.84 0 0 0-33.936 14.064l-96 96a48 48 0 1 0 67.872 67.872l96-96A48 48 0 0 0 272 704z m-48-192a48 48 0 0 0-48-48H48a48 48 0 1 0 0 96h128a48 48 0 0 0 48-48z m-14.064-369.936a48 48 0 1 0-67.872 67.872l96 96a48 48 0 1 0 67.872-67.872l-96-96zM752 320a47.84 47.84 0 0 0 33.936-14.064l96-96a48 48 0 1 0-67.872-67.872l-96 96A48 48 0 0 0 752 320z m33.936 398.064a48 48 0 1 0-67.872 67.872l96 96a48 48 0 1 0 67.872-67.872l-96-96zM512 800a48 48 0 0 0-48 48v128a48 48 0 1 0 96 0v-128a48 48 0 0 0-48-48z m464-336h-128a48 48 0 1 0 0 96h128a48 48 0 1 0 0-96zM512 0a48 48 0 0 0-48 48v128a48 48 0 1 0 96 0V48a48 48 0 0 0-48-48z"
+        fill="#1677ff" p-id="4054"></path>
+    </svg>
+    <p>Loading...</p>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
