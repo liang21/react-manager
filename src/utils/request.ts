@@ -1,6 +1,8 @@
 import { message } from "antd";
 import axios, { AxiosError } from "axios";
 import { hideLoading, showLoading } from "./loading";
+import storage from "./storage";
+import env from "@/config/index";
 
 const instance = axios.create({
   baseURL: "/api",
@@ -12,9 +14,14 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     showLoading();
-    const token = localStorage.getItem("token");
+    const token = storage.get("token");
     if (token) {
       config.headers.Authorization = "Token: " + token;
+    }
+    if (env.mock === true) {
+      config.baseURL = env.mockApi;
+    } else {
+      config.baseURL = env.baseApi;
     }
     return {
       ...config,
@@ -30,8 +37,8 @@ instance.interceptors.response.use(
     hideLoading();
     if (data.code === 0) {
       message.error(data.msg);
-      localStorage.removeItem("token");
-      location.href = "/login";
+      storage.remove("token");
+      // location.href = "/login";
     } else if (data.code != 0) {
       message.error(data.msg);
       return Promise.reject(data);
@@ -45,10 +52,10 @@ instance.interceptors.response.use(
   },
 );
 export default {
-  get(url: string, params: any) {
+  get<T>(url: string, params?: object): Promise<T> {
     return instance.get(url, { params });
   },
-  post(url: string, data: any) {
+  post<T>(url: string, data: object): Promise<T> {
     return instance.post(url, data);
   },
 };
