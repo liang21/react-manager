@@ -1,5 +1,4 @@
-import "./index.scss";
-let count = 0;
+let count = 0
 
 // export const showLoading = () => {
 //   if (count === 0) {
@@ -22,15 +21,15 @@ let count = 0;
 
 export const showLoading = () => {
   if (count === 0) {
-    const loading = document.getElementById("loading");
-    loading?.style.setProperty("display", "flex");
+    const loading = document.getElementById('loading')
+    loading?.style.setProperty('display', 'flex')
   }
-  count++;
-};
+  count++
+}
 export const hideLoading = () => {
-  count--;
+  count--
   if (count === 0) {
-    const loading = document.getElementById("loading");
-    loading?.style.setProperty("display", "none");
+    const loading = document.getElementById('loading')
+    loading?.style.setProperty('display', 'none')
   }
-};
+}
