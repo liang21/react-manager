@@ -2,7 +2,7 @@ import NotAuth from '@/views/403'
 import NotFound from '@/views/404'
 import Home from '@/views/Home'
 import Login from '@/views/login/Login'
-import { Navigate, useRoutes } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
 const router = [
   {
@@ -27,6 +27,4 @@ const router = [
   }
 ]
 
-export default function Router() {
-  return useRoutes(router)
-}
+export default createBrowserRouter(router)

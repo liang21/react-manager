@@ -1,5 +1,3 @@
-import { json } from "stream/consumers";
-
 export default {
   /**
    * storage存储
@@ -7,7 +5,7 @@ export default {
    * @param value
    */
   set(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value))
   },
   /**
    * storage获取
@@ -15,12 +13,12 @@ export default {
    * @returns
    */
   get(key: string) {
-    const value = localStorage.getItem(key);
-    if (value === null || value === undefined) return "";
+    const value = localStorage.getItem(key)
+    if (value === null || value === undefined) return ''
     try {
-      return JSON.parse(value);
+      return JSON.parse(value)
     } catch (err) {
-      return value;
+      return value
     }
   },
   /**
@@ -28,12 +26,12 @@ export default {
    * @param key
    */
   remove(key: string) {
-    localStorage.removeItem(key);
+    localStorage.removeItem(key)
   },
   /**
    * storage清空
    */
   clear() {
-    localStorage.clear();
-  },
-};
+    localStorage.clear()
+  }
+}
