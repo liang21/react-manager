@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.less'
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 function Login() {
   const onFinish = (values: any) => {
     console.log('Success:', values)
