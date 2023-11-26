@@ -1,9 +1,9 @@
-import Loading from '@/utils/loading/loading'
+import LayoutFC from '@/layout'
 
 function Home() {
   return (
     <div className='home'>
-      <Loading />
+      <LayoutFC />
     </div>
   )
 }

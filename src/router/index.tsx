@@ -7,11 +7,15 @@ import { Navigate, createBrowserRouter } from 'react-router-dom'
 const router = [
   {
     path: '/',
-    element: <Home />
+    element: <Navigate to={'/home'} />
   },
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/home',
+    element: <Home />
   },
   {
     path: '*',
