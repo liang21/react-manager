@@ -1,18 +1,26 @@
 import React from 'react'
-import { Layout, Menu, theme } from 'antd'
+import { Layout } from 'antd'
 import NavHeader from '@/components/layout/header'
 import NavFooter from '@/components/layout/footer'
-import SiderFC from '@/components/layout/sider'
+import MenuFC from '@/components/layout/menu'
 import ContentFC from '@/components/layout/content'
-
+import { Outlet } from 'react-router-dom'
+import styles from './index.module.less'
+const { Sider, Content } = Layout
 const LayoutFC = () => {
   return (
     <Layout>
-      <SiderFC />
+      <Sider>
+        <MenuFC />
+      </Sider>
       <Layout>
         <NavHeader />
-        <ContentFC />
-        <NavFooter />
+        <Content className={styles.content}>
+          <div className={styles.wrapper}>
+            <Outlet></Outlet>
+          </div>
+          <NavFooter />
+        </Content>
       </Layout>
     </Layout>
   )

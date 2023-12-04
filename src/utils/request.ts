@@ -10,7 +10,7 @@ const instance = axios.create({
   timeoutErrorMessage: '请求超时，请稍后再试',
   withCredentials: true,
   headers: {
-    icode: ''
+    icode: '6F5C6493EB3D301C'
   }
 })
 
@@ -21,7 +21,6 @@ instance.interceptors.request.use(
     if (token) {
       config.headers.Authorization = 'Token: ' + token
     }
-    config.headers.icode = '6F5C6493EB3D301C'
     if (env.mock === true) {
       config.baseURL = env.mockApi
     } else {

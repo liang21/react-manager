@@ -4,7 +4,7 @@ import { DesktopOutlined, TeamOutlined, UploadOutlined, UserOutlined, VideoCamer
 import { useState } from 'react'
 import styles from './index.module.less'
 import { useNavigate } from 'react-router-dom'
-const SiderFC = () => {
+const MenuFC = () => {
   const [collapsed, setCollapsed] = useState(false)
   const navigate = useNavigate()
   const items = [
@@ -40,14 +40,14 @@ const SiderFC = () => {
     navigate('/home')
   }
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
-      <div className={styles.logo}>
-        <img className={styles.img} src='/imgs/logo.png' alt='' onClick={handleClickLogo} />
+    <div>
+      <div className={styles.logo} onClick={handleClickLogo}>
+        <img className={styles.img} src='/imgs/logo.png' alt='' />
         <span>后台管理系统</span>
       </div>
       <Menu theme='dark' mode='inline' defaultSelectedKeys={['1']} items={items} />
-    </Sider>
+    </div>
   )
 }
 
-export default SiderFC
+export default MenuFC

@@ -1,6 +1,7 @@
+import LayoutFC from '@/layout'
 import NotAuth from '@/views/403'
 import NotFound from '@/views/404'
-import Home from '@/views/Home'
+import Home from '@/views/home'
 import Login from '@/views/login/Login'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 
@@ -14,8 +15,14 @@ const router = [
     element: <Login />
   },
   {
-    path: '/home',
-    element: <Home />
+    id: 'layout',
+    element: <LayoutFC />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />
+      }
+    ]
   },
   {
     path: '*',
